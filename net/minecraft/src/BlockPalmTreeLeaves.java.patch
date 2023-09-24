@@ -1,0 +1,134 @@
+--- /dev/null
++++ b/net/minecraft/src/BlockPalmTreeLeaves.java
+@@ -1,0 +1,131 @@
++package net.minecraft.src;
++
++import java.util.Random;
++
++public class BlockPalmTreeLeaves extends BlockLeavesBase {
++    private int baseIndexInPNG;
++    int[] adjacentTreeBlocks;
++
++    protected BlockPalmTreeLeaves(int i, int j) {
++        super(i, j, Material.leaves, false);
++        baseIndexInPNG = j;
++        setTickOnLoad(true);
++    }
++
++    public void updateTick(World world1, int i2, int i3, int i4, Random random5) {
++        if(!world1.multiplayerWorld) {
++            int i6 = world1.getBlockMetadata(i2, i3, i4);
++            if((i6 & 8) != 0) {
++                byte b7 = 4;
++                int i8 = b7 + 1;
++                byte b9 = 32;
++                int i10 = b9 * b9;
++                int i11 = b9 / 2;
++                if(this.adjacentTreeBlocks == null) {
++                    this.adjacentTreeBlocks = new int[b9 * b9 * b9];
++                }
++
++                int i12;
++                if(world1.checkChunksExist(i2 - i8, i3 - i8, i4 - i8, i2 + i8, i3 + i8, i4 + i8)) {
++                    i12 = -b7;
++
++                    label111:
++                    while(true) {
++                        int i13;
++                        int i14;
++                        int i15;
++                        if(i12 > b7) {
++                            i12 = 1;
++
++                            while(true) {
++                                if(i12 > 4) {
++                                    break label111;
++                                }
++
++                                for(i13 = -b7; i13 <= b7; ++i13) {
++                                    for(i14 = -b7; i14 <= b7; ++i14) {
++                                        for(i15 = -b7; i15 <= b7; ++i15) {
++                                            if(this.adjacentTreeBlocks[(i13 + i11) * i10 + (i14 + i11) * b9 + i15 + i11] == i12 - 1) {
++                                                if(this.adjacentTreeBlocks[(i13 + i11 - 1) * i10 + (i14 + i11) * b9 + i15 + i11] == -2) {
++                                                    this.adjacentTreeBlocks[(i13 + i11 - 1) * i10 + (i14 + i11) * b9 + i15 + i11] = i12;
++                                                }
++
++                                                if(this.adjacentTreeBlocks[(i13 + i11 + 1) * i10 + (i14 + i11) * b9 + i15 + i11] == -2) {
++                                                    this.adjacentTreeBlocks[(i13 + i11 + 1) * i10 + (i14 + i11) * b9 + i15 + i11] = i12;
++                                                }
++
++                                                if(this.adjacentTreeBlocks[(i13 + i11) * i10 + (i14 + i11 - 1) * b9 + i15 + i11] == -2) {
++                                                    this.adjacentTreeBlocks[(i13 + i11) * i10 + (i14 + i11 - 1) * b9 + i15 + i11] = i12;
++                                                }
++
++                                                if(this.adjacentTreeBlocks[(i13 + i11) * i10 + (i14 + i11 + 1) * b9 + i15 + i11] == -2) {
++                                                    this.adjacentTreeBlocks[(i13 + i11) * i10 + (i14 + i11 + 1) * b9 + i15 + i11] = i12;
++                                                }
++
++                                                if(this.adjacentTreeBlocks[(i13 + i11) * i10 + (i14 + i11) * b9 + (i15 + i11 - 1)] == -2) {
++                                                    this.adjacentTreeBlocks[(i13 + i11) * i10 + (i14 + i11) * b9 + (i15 + i11 - 1)] = i12;
++                                                }
++
++                                                if(this.adjacentTreeBlocks[(i13 + i11) * i10 + (i14 + i11) * b9 + i15 + i11 + 1] == -2) {
++                                                    this.adjacentTreeBlocks[(i13 + i11) * i10 + (i14 + i11) * b9 + i15 + i11 + 1] = i12;
++                                                }
++                                            }
++                                        }
++                                    }
++                                }
++
++                                ++i12;
++                            }
++                        }
++
++                        for(i13 = -b7; i13 <= b7; ++i13) {
++                            for(i14 = -b7; i14 <= b7; ++i14) {
++                                i15 = world1.getBlockId(i2 + i12, i3 + i13, i4 + i14);
++                                if(i15 == mod_SummerParadise.PalmTreeWood.blockID) {
++                                    this.adjacentTreeBlocks[(i12 + i11) * i10 + (i13 + i11) * b9 + i14 + i11] = 0;
++                                } else if(i15 == mod_SummerParadise.PalmTreeLeaves.blockID) {
++                                    this.adjacentTreeBlocks[(i12 + i11) * i10 + (i13 + i11) * b9 + i14 + i11] = -2;
++                                } else {
++                                    this.adjacentTreeBlocks[(i12 + i11) * i10 + (i13 + i11) * b9 + i14 + i11] = -1;
++                                }
++                            }
++                        }
++
++                        ++i12;
++                    }
++                }
++
++                i12 = this.adjacentTreeBlocks[i11 * i10 + i11 * b9 + i11];
++                if(i12 >= 0) {
++                    world1.setBlockMetadata(i2, i3, i4, i6 & -9);
++                } else {
++                    this.removeLeaves(world1, i2, i3, i4);
++                }
++            }
++
++        }
++    }
++
++    private void removeLeaves(World world, int i, int j, int k) {
++        dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k));
++        world.setBlockWithNotify(i, j, k, 0);
++    }
++
++    public int idDropped(int i, Random random) {
++        if(random.nextInt(3) == 0) {
++            return mod_SummerParadise.PalmTreeSapling.blockID;
++        } else {
++            return -1;
++        }
++    }
++
++    public void setGraphicsLevel(boolean z1) {
++        this.graphicsLevel = z1;
++        this.blockIndexInTexture = this.baseIndexInPNG + (z1? 0 : 15);
++    }
++
++    public void onEntityWalking(World world, int i, int j, int k, Entity entity)
++    {
++        super.onEntityWalking(world, i, j, k, entity);
++    }
++}

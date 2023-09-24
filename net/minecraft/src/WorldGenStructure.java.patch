@@ -1,0 +1,385 @@
+--- /dev/null
++++ b/net/minecraft/src/WorldGenStructure.java
+@@ -1,0 +1,382 @@
++package net.minecraft.src;
++
++import java.util.Random;
++
++public class WorldGenStructure extends WorldGenerator {
++
++    public WorldGenStructure() {
++    }
++
++    public boolean generate(World world, Random random, int x, int y, int z) {
++        int MossyStone = Block.cobblestoneMossy.blockID;
++        int Fence = Block.fence.blockID;
++        int Sponge = Block.sponge.blockID;
++
++        //Chest
++        world.setBlockWithNotify(x + 2, y , z + 2, Block.chest.blockID);
++
++
++        TileEntity localjs = world.getBlockTileEntity(x + 2, y, z + 2);
++        if (localjs instanceof TileEntityChest) {
++            TileEntityChest chest = (TileEntityChest) localjs;
++            for (int i6 = 0; i6 < 8; ++i6) {
++                ItemStack stack = this.pickCheckLootItem(random);
++                if (stack != null) {
++                    chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), stack);
++                }
++            }
++        }
++
++        //Layer -10
++        world.setBlockWithNotify(x, y -10 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y -10 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y -10 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y -10 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -10 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -10 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -10 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -10 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -10 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y -10 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y -10 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 1, y -10 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -10 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -10 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x , y -10 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x , y -10 , z + 1 , MossyStone);
++
++        //Layer -9
++        world.setBlockWithNotify(x, y -9 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y -9 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y -9 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y -9 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -9 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -9 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -9 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -9 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -9 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y -9 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y -9 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 1, y -9 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -9 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -9 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x , y -9 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x , y -9 , z + 1 , MossyStone);
++
++        //Layer -8
++        world.setBlockWithNotify(x, y -8 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y -8 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y -8 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y -8 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -8 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -8 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -8 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -8 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -8 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y -8 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y -8 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 1, y -8 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -8 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -8 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x , y -8 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x , y -8 , z + 1 , MossyStone);
++
++        //Layer -7
++        world.setBlockWithNotify(x, y -7 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y -7 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y -7 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y -7 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -7 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -7 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -7 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -7 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -7 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y -7 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y -7 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 1, y -7 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -7 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -7 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x , y -7 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x , y -7 , z + 1 , MossyStone);
++
++        //Layer -6
++        world.setBlockWithNotify(x, y -6 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y -6 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y -6 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y -6 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -6 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -6 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -6 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -6 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -6 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y -6 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y -6 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 1, y -6 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -6 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -6 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x , y -6 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x , y -6 , z + 1 , MossyStone);
++
++        //Layer -5
++        world.setBlockWithNotify(x, y -5 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y -5 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y -5 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y -5 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -5 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -5 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -5 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -5 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -5 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y -5 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y -5 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 1, y -5 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -5 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -5 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x , y -5 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x , y -5 , z + 1 , MossyStone);
++
++        //Layer -4
++        world.setBlockWithNotify(x, y -4 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y -4 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y -4 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y -4 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -4 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -4 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -4 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -4 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -4 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y -4 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y -4 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 1, y -4 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -4 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -4 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x , y -4 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x , y -4 , z + 1 , MossyStone);
++
++        //Layer -3
++        world.setBlockWithNotify(x, y -3 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y -3 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y -3 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y -3 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -3 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -3 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -3 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -3 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -3 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y -3 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y -3 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 1, y -3 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -3 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -3 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x , y -3 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x , y -3 , z + 1 , MossyStone);
++
++        //Layer -2
++        world.setBlockWithNotify(x, y -2 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y -2 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y -2 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y -2 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -2 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y -2 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -2 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -2 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y -2 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y -2 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y -2 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 1, y -2 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -2 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y -2 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x , y -2 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x , y -2 , z + 1 , MossyStone);
++
++        //Layer -1
++        world.setBlockWithNotify(x, y - 1 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y - 1 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y - 1 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y - 1 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y - 1 , z , MossyStone);
++        world.setBlockWithNotify(x, y - 1 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 1, y - 1 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 2, y - 1 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 3, y - 1 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y - 1 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x, y - 1 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 1, y - 1 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 2, y - 1 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 3, y - 1 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y - 1 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x, y - 1 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 1, y - 1 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 2, y - 1 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 3, y - 1 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y - 1 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x, y - 1 , z + 4, MossyStone);
++        world.setBlockWithNotify(x + 1, y - 1 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y - 1 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y - 1 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 4, y - 1 , z + 4 , MossyStone);
++
++        //layer 0
++        world.setBlockWithNotify(x, y , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 1, y , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y , z + 3 , MossyStone);
++        world.setBlockWithNotify(x , y , z + 2 , MossyStone);
++        world.setBlockWithNotify(x , y , z + 1 , MossyStone);
++
++
++        //Layer 1
++        world.setBlockWithNotify(x, y + 1 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 1 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y + 1 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y + 1 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y + 1 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y + 1 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y + 1 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y + 1 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y + 1 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y + 1 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y + 1 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 1, y + 1 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y + 1 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x , y + 1 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x , y + 1 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x , y + 1 , z + 1 , MossyStone);
++
++        //Layer 2
++        world.setBlockWithNotify(x + 1, y + 2 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 2 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 3, y + 2 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 3, y + 2 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 3, y + 2 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 2 , y + 2 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 1 , y + 2 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 1 , y + 2 , z + 2 , MossyStone);
++
++        //Layer 3
++        world.setBlockWithNotify(x, y + 3 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 3 , z , MossyStone);
++        world.setBlockWithNotify(x + 2, y + 3 , z , MossyStone);
++        world.setBlockWithNotify(x + 3, y + 3 , z , MossyStone);
++        world.setBlockWithNotify(x + 4, y + 3 , z , MossyStone);
++        world.setBlockWithNotify(x, y + 3 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 3 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 2, y + 3 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 3, y + 3 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x + 4, y + 3 , z + 1 , MossyStone);
++        world.setBlockWithNotify(x, y + 3 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 3 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 2, y + 3 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 3, y + 3 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x + 4, y + 3 , z + 2 , MossyStone);
++        world.setBlockWithNotify(x, y + 3 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 3 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 2, y + 3 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 3, y + 3 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x + 4, y + 3 , z + 3 , MossyStone);
++        world.setBlockWithNotify(x, y + 3 , z + 4, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 3 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 2, y + 3 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 3, y + 3 , z + 4 , MossyStone);
++        world.setBlockWithNotify(x + 4, y + 3 , z + 4 , MossyStone);
++
++        //Layer 4
++        world.setBlockWithNotify(x + 2, y + 4 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 4 , z + 3, MossyStone);
++        world.setBlockWithNotify(x, y + 4 , z, Fence);
++
++        //Layer 5
++        world.setBlockWithNotify(x + 2, y + 5 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 5 , z + 3, MossyStone);
++        world.setBlockWithNotify(x, y + 5 , z, Fence);
++
++        //Layer 6
++        world.setBlockWithNotify(x + 2, y + 6 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 6 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 6 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 6 , z + 4, MossyStone);
++        world.setBlockWithNotify(x, y + 6 , z, Fence);
++
++        //Layer 7
++        world.setBlockWithNotify(x + 2, y + 7 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 7 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 7 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 7 , z + 4, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 7 , z, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 7 , z, MossyStone);
++        world.setBlockWithNotify(x, y + 7 , z, MossyStone);
++
++        //Layer 8
++        world.setBlockWithNotify(x + 2, y + 8 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 8 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 8 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 8 , z + 4, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 8 , z, MossyStone);
++        world.setBlockWithNotify(x, y + 8 , z, Fence);
++
++        //Layer 9
++        world.setBlockWithNotify(x + 2, y + 9 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 9 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 9 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 9 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 9 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 9 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 9 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 9 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 9 , z + 3, MossyStone);
++        world.setBlockWithNotify(x, y + 9 , z + 2, MossyStone);
++        world.setBlockWithNotify(x, y + 9 , z, Fence);
++
++        //Layer 10
++        world.setBlockWithNotify(x + 2, y + 10 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 10 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 10 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 10 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 10 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 10 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 10 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 10 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 10 , z + 3, MossyStone);
++        world.setBlockWithNotify(x, y + 10 , z + 2, MossyStone);
++        world.setBlockWithNotify(x, y + 10 , z, Sponge);
++
++        //Layer 11
++        world.setBlockWithNotify(x + 2, y + 11 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 11 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 11 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 11 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 11 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 11 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 11 , z + 1, Fence);
++        world.setBlockWithNotify(x + 1, y + 11 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 11 , z + 3, Fence);
++
++        //Layer 12
++        world.setBlockWithNotify(x + 2, y + 12 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 12 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 2, y + 12 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 12 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 12 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 3, y + 12 , z + 3, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 12 , z + 1, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 12 , z + 2, MossyStone);
++        world.setBlockWithNotify(x + 1, y + 12 , z + 3, MossyStone);
++
++
++        return true;
++    }
++
++    private ItemStack pickCheckLootItem(Random random) {
++        return SAPI.structureGetRandomItem();
++    }
++}

@@ -1,0 +1,30 @@
+--- a/net/minecraft/src/ItemDye.java
++++ b/net/minecraft/src/ItemDye.java
+@@ -30,9 +30,27 @@
+ 				return true;
+ 			}
+ 
++			if(i8 == mod_SummerParadise.PalmTreeSapling.blockID) {
++				if(!world3.multiplayerWorld) {
++					((BlockPalmTreeSapling)mod_SummerParadise.PalmTreeSapling).growTree(world3, i4, i5, i6, world3.rand);
++					--itemStack1.stackSize;
++				}
++
++				return true;
++			}
++
+ 			if(i8 == Block.crops.blockID) {
+ 				if(!world3.multiplayerWorld) {
+ 					((BlockCrops)Block.crops).fertilize(world3, i4, i5, i6);
++					--itemStack1.stackSize;
++				}
++
++				return true;
++			}
++
++			if(i8 == mod_SummerParadise.CranberryCrop.blockID) {
++				if(!world3.multiplayerWorld) {
++					((BlockCranberry)mod_SummerParadise.CranberryCrop).fertilize(world3, i4, i5, i6);
+ 					--itemStack1.stackSize;
+ 				}
+ 

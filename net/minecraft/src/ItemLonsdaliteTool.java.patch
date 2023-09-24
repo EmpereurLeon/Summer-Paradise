@@ -1,0 +1,34 @@
+--- /dev/null
++++ b/net/minecraft/src/ItemLonsdaliteTool.java
+@@ -1,0 +1,31 @@
++package net.minecraft.src;
++
++import java.util.Iterator;
++
++public class ItemLonsdaliteTool extends Tool {
++    private Block blocksEffectiveAgainst[];
++    protected float efficiencyOnProperMaterial;
++    protected EnumToolMaterialLonsdalite toolMaterial;
++
++    protected ItemLonsdaliteTool(int itemID, int damage, EnumToolMaterialLonsdalite material, Block[] blocks) {
++        super(false, (ToolBase)null, itemID, material.getMaxUses(), (float)(damage + material.getDamageVsEntity()), getToolPower(material), material.getEfficiencyOnProperMaterial());
++        this.toolMaterial = material;
++        Block[] block8 = blocks;
++        int i7 = blocks.length;
++        blocksEffectiveAgainst = blocks;
++        efficiencyOnProperMaterial = material.getEfficiencyOnProperMaterial();
++    }
++
++    public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
++        for (int i = 0; i < blocksEffectiveAgainst.length; i++) {
++            if (blocksEffectiveAgainst[i] == par2Block) {
++                return efficiencyOnProperMaterial;
++            }
++        }
++        return 1.0F;
++    }
++
++    public static float getToolPower(EnumToolMaterialLonsdalite material) {
++        return material == EnumToolMaterialLonsdalite.MATERIALLONSDALITE ? 80.0F : 20.0F;
++    }
++}

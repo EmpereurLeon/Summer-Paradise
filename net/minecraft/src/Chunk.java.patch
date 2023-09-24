@@ -1,0 +1,20 @@
+--- a/net/minecraft/src/Chunk.java
++++ b/net/minecraft/src/Chunk.java
+@@ -9,7 +9,7 @@
+ 
+ public class Chunk {
+ 	public static boolean isLit;
+-	public byte[] blocks;
++	public short[] blocks;
+ 	public boolean isChunkLoaded;
+ 	public World worldObj;
+ 	public NibbleArray data;
+@@ -45,7 +45,7 @@
+ 
+ 	}
+ 
+-	public Chunk(World world1, byte[] b2, int i3, int i4) {
++	public Chunk(World world1, short[] b2, int i3, int i4) {
+ 		this(world1, i3, i4);
+ 		this.blocks = b2;
+ 		this.data = new NibbleArray(b2.length);

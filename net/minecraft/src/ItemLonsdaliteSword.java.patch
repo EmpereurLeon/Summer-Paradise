@@ -1,0 +1,43 @@
+--- /dev/null
++++ b/net/minecraft/src/ItemLonsdaliteSword.java
+@@ -1,0 +1,40 @@
++package net.minecraft.src;
++
++public class ItemLonsdaliteSword extends Item {
++    private int weaponDamage;
++    private final EnumToolMaterialLonsdalite toolMaterial;
++
++    public ItemLonsdaliteSword(int par1, EnumToolMaterialLonsdalite par2EnumToolMaterialLonsdalite) {
++        super(par1);
++        toolMaterial = par2EnumToolMaterialLonsdalite;
++        maxStackSize = 1;
++        setMaxDamage(par2EnumToolMaterialLonsdalite.getMaxUses());
++        weaponDamage = 4 + par2EnumToolMaterialLonsdalite.getDamageVsEntity();
++    }
++
++    public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
++        return par2Block.blockID != Block.web.blockID ? 1.5F : 15F;
++    }
++
++    public boolean hitEntity(ItemStack par1ItemStack, EntityLiving par2EntityLiving, EntityLiving par3EntityLiving) {
++        par1ItemStack.damageItem(1, par3EntityLiving);
++        return true;
++    }
++
++    public boolean onBlockDestroyed(ItemStack par1ItemStack, int par2, int par3, int par4, int par5, EntityLiving par6EntityLiving) {
++        par1ItemStack.damageItem(2, par6EntityLiving);
++        return true;
++    }
++
++    public int getDamageVsEntity(Entity par1Entity) {
++        return weaponDamage;
++    }
++
++    public boolean isFull3D() {
++        return true;
++    }
++
++    public boolean canHarvestBlock(Block par1Block) {
++        return par1Block.blockID == Block.web.blockID;
++    }
++}

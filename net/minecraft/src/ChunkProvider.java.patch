@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/ChunkProvider.java
++++ b/net/minecraft/src/ChunkProvider.java
+@@ -18,7 +18,7 @@
+ 	private World field_28066_g;
+ 
+ 	public ChunkProvider(World paramfd, IChunkLoader parambf, IChunkProvider paramcl) {
+-		this.field_28064_b = new EmptyChunk(paramfd, new byte[32768], 0, 0);
++		this.field_28064_b = new EmptyChunk(paramfd, new short[32768], 0, 0);
+ 		this.field_28066_g = paramfd;
+ 		this.chunkLoader = parambf;
+ 		this.chunkProvider = paramcl;

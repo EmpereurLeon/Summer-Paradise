@@ -1,0 +1,74 @@
+--- /dev/null
++++ b/net/minecraft/src/WorldProviderSummerParadise.java
+@@ -1,0 +1,71 @@
++package net.minecraft.src;
++
++public class WorldProviderSummerParadise extends WorldProvider
++{
++
++    public WorldProviderSummerParadise()
++    {
++    }
++
++
++    public void registerWorldChunkManager()
++    {
++        this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.rainforest, 0.9D, 0.9D);
++        worldType = 1001;
++    }
++
++    public IChunkProvider getChunkProvider()
++    {
++        return new ChunkProviderSummerParadise(this.worldObj, this.worldObj.getRandomSeed());
++    }
++
++    public float calculateCelestialAngle(long l, float f)
++    {
++        return 0.0F;
++    }
++
++    public float[] calcSunriseSunsetColors(float f, float f1)
++    {
++        return null;
++    }
++
++    public Vec3D func_4096_a(float paramFloat1, float paramFloat2) {
++        float f1 = MathHelper.cos(paramFloat1 * 3.141593F * 2.0F) * 2.0F + 0.5F;
++        if(f1 < 0.0F) {
++            f1 = 0.0F;
++        }
++
++        if(f1 > 1.0F) {
++            f1 = 1.0F;
++        }
++
++        float f2 = 0.7529412F;
++        float f3 = 0.8470588F;
++        float f4 = 1.0F;
++        f2 *= f1 * 0.94F + 0.06F;
++        f3 *= f1 * 0.94F + 0.06F;
++        f4 *= f1 * 0.91F + 0.09F;
++        return Vec3D.createVector((double)f2, (double)f3, (double)f4);
++    }
++
++    public boolean func_28112_c()
++    {
++        return false;
++    }
++
++    public float getCloudHeight()
++    {
++        return 268F;
++    }
++
++    public boolean canCoordinateBeSpawn(int i, int j)
++    {
++        int k = worldObj.getFirstUncoveredBlock(i, j);
++        return k == Block.sand.blockID || k == Block.grass.blockID;
++    }
++
++    public boolean canRespawnHere()
++    {
++        return false;
++    }
++}

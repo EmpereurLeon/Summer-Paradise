@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/ChunkBlockMap.java
++++ b/net/minecraft/src/ChunkBlockMap.java
+@@ -3,7 +3,7 @@
+ public class ChunkBlockMap {
+ 	private static byte[] field_26003_a = new byte[256];
+ 
+-	public static void func_26002_a(byte[] b0) {
++	public static void func_26002_a(short[] b0) {
+ 		for(int i1 = 0; i1 < b0.length; ++i1) {
+ 			b0[i1] = field_26003_a[b0[i1] & 255];
+ 		}

@@ -1,0 +1,39 @@
+--- a/net/minecraft/src/NBTTagCompound.java
++++ b/net/minecraft/src/NBTTagCompound.java
+@@ -76,6 +76,10 @@
+ 		this.tagMap.put(string1, (new NBTTagByteArray(b2)).setKey(string1));
+ 	}
+ 
++	public void setShortArray(String string1, short[] s1) {
++		this.tagMap.put(string1, (new NBTTagShortArray(s1)).setKey(string1));
++	}
++
+ 	public void setCompoundTag(String string1, NBTTagCompound nBTTagCompound2) {
+ 		this.tagMap.put(string1, nBTTagCompound2.setKey(string1));
+ 	}
+@@ -118,6 +122,25 @@
+ 
+ 	public byte[] getByteArray(String string1) {
+ 		return !this.tagMap.containsKey(string1) ? new byte[0] : ((NBTTagByteArray)this.tagMap.get(string1)).byteArray;
++	}
++
++	public short[] getShortArray(String s) {
++		if (this.tagMap.containsKey(s)) {
++			NBTBase tag = (NBTBase) this.tagMap.get(s);
++
++			if (tag instanceof NBTTagShortArray) {
++				return ((NBTTagShortArray) tag).shortArray;
++			} else if (tag instanceof NBTTagByteArray) {
++				NBTTagByteArray byteArrayTag = (NBTTagByteArray) tag;
++				short[] shortArray = new short[byteArrayTag.byteArray.length];
++				for (int i = 0; i < byteArrayTag.byteArray.length; i++) {
++					shortArray[i] = byteArrayTag.byteArray[i];
++				}
++				return shortArray;
++			}
++		}
++
++		return new short[0];
+ 	}
+ 
+ 	public NBTTagCompound getCompoundTag(String string1) {

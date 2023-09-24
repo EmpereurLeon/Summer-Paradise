@@ -1,0 +1,16 @@
+--- /dev/null
++++ b/net/minecraft/src/ItemLonsdaleite.java
+@@ -1,0 +1,13 @@
++package net.minecraft.src;
++
++import java.util.Random;
++
++public class ItemLonsdaleite extends Item
++{
++
++    public ItemLonsdaleite (int i)
++    {
++        super(i);
++        maxStackSize = 64;
++    }
++}

@@ -1,0 +1,80 @@
+--- /dev/null
++++ b/net/minecraft/src/BlockRedReed.java
+@@ -1,0 +1,77 @@
++package net.minecraft.src;
++
++import java.util.Random;
++
++public class BlockRedReed extends Block {
++    protected BlockRedReed(int i, int j) {
++        super(i, Material.plants);
++        this.blockIndexInTexture = j;
++        float f = 0.375F;
++        this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
++        this.setTickOnLoad(true);
++    }
++
++    public void updateTick(World world, int i, int j, int k, Random random) {
++        if(world.isAirBlock(i, j + 1, k)) {
++            int l;
++            for(l = 1; world.getBlockId(i, j - l, k) == this.blockID; l++) {
++            }
++
++            if(l < 3) {
++                int i1 = world.getBlockMetadata(i, j, k);
++                if(i1 == 15) {
++                    world.setBlockWithNotify(i, j + 1, k, this.blockID);
++                    world.setBlockMetadataWithNotify(i, j, k, 0);
++                } else {
++                    world.setBlockMetadataWithNotify(i, j, k, i1 + 1);
++                }
++            }
++        }
++    }
++
++    public boolean canPlaceBlockAt(World world1, int i2, int i3, int i4) {
++        int i5 = world1.getBlockId(i2, i3 - 1, i4);
++        return i5 == this.blockID ? true : (i5 != Block.grass.blockID && i5 != Block.dirt.blockID ? false : (world1.getBlockMaterial(i2 - 1, i3 - 1, i4) == Material.water ? true : (world1.getBlockMaterial(i2 + 1, i3 - 1, i4) == Material.water ? true : (world1.getBlockMaterial(i2, i3 - 1, i4 - 1) == Material.water ? true : world1.getBlockMaterial(i2, i3 - 1, i4 + 1) == Material.water))));
++    }
++
++    public void onNeighborBlockChange(World world, int i, int j, int k, int l) {
++        checkBlockCoordValid(world, i, j, k);
++    }
++
++    protected final void checkBlockCoordValid(World world, int i, int j, int k) {
++        if(!canBlockStay(world, i, j, k)) {
++            dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k));
++            world.setBlockWithNotify(i, j, k, 0);
++        }
++    }
++
++    public boolean canBlockStay(World world, int i, int j, int k)
++    {
++        return canPlaceBlockAt(world, i, j, k);
++    }
++
++    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k)
++    {
++        return null;
++    }
++
++    public int idDropped(int i, Random random) {
++        return mod_SummerParadise.RedReedItem.shiftedIndex;
++    }
++
++    public boolean isOpaqueCube()
++    {
++        return false;
++    }
++
++    public boolean renderAsNormalBlock()
++    {
++        return false;
++    }
++
++    public int getRenderType()
++    {
++        return 1;
++    }
++}
++

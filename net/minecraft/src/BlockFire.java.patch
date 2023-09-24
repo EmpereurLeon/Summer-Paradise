@@ -1,0 +1,16 @@
+--- a/net/minecraft/src/BlockFire.java
++++ b/net/minecraft/src/BlockFire.java
+@@ -184,6 +184,13 @@
+ 				world1.scheduleBlockUpdate(i2, i3, i4, this.blockID, this.tickRate());
+ 			}
+ 		}
++		if(world1.getBlockId(i2, i3 - 1, i4) != Block.sponge.blockID || !mod_SummerParadise.SummerParadisePortal.tryToCreatePortal(world1, i2, i3, i4)) {
++			if(!world1.isBlockNormalCube(i2, i3 - 1, i4) && !this.func_263_h(world1, i2, i3, i4)) {
++				world1.setBlockWithNotify(i2, i3, i4, 0);
++			} else {
++				world1.scheduleBlockUpdate(i2, i3, i4, this.blockID, this.tickRate());
++			}
++		}
+ 	}
+ 
+ 	public void randomDisplayTick(World world1, int i2, int i3, int i4, Random random5) {

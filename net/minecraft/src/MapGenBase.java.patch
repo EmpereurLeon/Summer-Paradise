@@ -1,0 +1,19 @@
+--- a/net/minecraft/src/MapGenBase.java
++++ b/net/minecraft/src/MapGenBase.java
+@@ -6,7 +6,7 @@
+ 	protected int field_1306_a = 8;
+ 	protected Random rand = new Random();
+ 
+-	public void func_867_a(IChunkProvider iChunkProvider1, World world2, int i3, int i4, byte[] b5) {
++	public void func_867_a(IChunkProvider iChunkProvider1, World world2, int i3, int i4, short[] b5) {
+ 		int i6 = this.field_1306_a;
+ 		this.rand.setSeed(world2.getRandomSeed());
+ 		long j7 = this.rand.nextLong() / 2L * 2L + 1L;
+@@ -21,6 +21,6 @@
+ 
+ 	}
+ 
+-	protected void func_868_a(World world1, int i2, int i3, int i4, int i5, byte[] b6) {
++	protected void func_868_a(World world1, int i2, int i3, int i4, int i5, short[] b6) {
+ 	}
+ }

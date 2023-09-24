@@ -1,0 +1,67 @@
+--- /dev/null
++++ b/net/minecraft/src/ItemLonsdalitePickaxe.java
+@@ -1,0 +1,64 @@
++package net.minecraft.src;
++
++public class ItemLonsdalitePickaxe extends ItemLonsdaliteTool {
++    private static Block[] blocksEffectiveAgainst = new Block[] {
++            Block.cobblestone,
++            Block.stone,
++            Block.sandStone,
++            Block.cobblestoneMossy,
++            Block.oreIron,
++            Block.blockSteel,
++            Block.oreCoal,
++            Block.blockGold,
++            Block.oreGold,
++            Block.oreDiamond,
++            Block.blockDiamond,
++            Block.ice,
++            Block.netherrack,
++            Block.oreLapis,
++            Block.blockLapis,
++            Block.oreRedstone,
++            Block.oreRedstoneGlowing,
++            Block.rail,
++            Block.railDetector,
++            Block.railPowered
++    };
++
++    protected ItemLonsdalitePickaxe(int par1, EnumToolMaterialLonsdalite par2EnumToolMaterialLonsdalite) {
++        super(par1, 2, par2EnumToolMaterialLonsdalite, blocksEffectiveAgainst);
++        maxStackSize = 1;
++        setMaxDamage(par2EnumToolMaterialLonsdalite.getMaxUses());
++    }
++
++    public boolean canHarvestBlock(Block par1Block) {
++        if (par1Block == Block.obsidian) {
++            return toolMaterial.getHarvestLevel() == 3;
++        }
++
++        if (par1Block == Block.blockDiamond || par1Block == Block.oreDiamond) {
++            return toolMaterial.getHarvestLevel() >= 2;
++        }
++
++        if (par1Block == Block.blockGold || par1Block == Block.oreGold) {
++            return toolMaterial.getHarvestLevel() >= 2;
++        }
++
++        if (par1Block == Block.blockSteel || par1Block == Block.oreIron) {
++            return toolMaterial.getHarvestLevel() >= 1;
++        }
++
++        if (par1Block == Block.blockLapis || par1Block == Block.oreLapis) {
++            return toolMaterial.getHarvestLevel() >= 1;
++        }
++
++        if (par1Block == Block.oreRedstone || par1Block == Block.oreRedstoneGlowing) {
++            return toolMaterial.getHarvestLevel() >= 2;
++        }
++
++        if (par1Block.blockMaterial == Material.rock) {
++            return true;
++        }
++
++        return par1Block.blockMaterial == Material.iron;
++    }
++}

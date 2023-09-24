@@ -1,0 +1,63 @@
+--- a/net/minecraft/src/SAPI.java
++++ b/net/minecraft/src/SAPI.java
+@@ -273,9 +273,60 @@
+ 
+ 	}
+ 
++	static void structureAddDefaultItems() {
++		int j2;
++		for(j2 = 0; j2 < 100; ++j2) {
++			dngItems.add(new DungeonLoot(new ItemStack(mod_SummerParadise.PalmTreeWood)));
++		}
++
++		for(j2 = 0; j2 < 100; ++j2) {
++			dngItems.add(new DungeonLoot(new ItemStack(Item.diamond), 1, 4));
++		}
++
++		for(j2 = 0; j2 < 100; ++j2) {
++			dngItems.add(new DungeonLoot(new ItemStack(mod_SummerParadise.Alcohol)));
++		}
++
++		for(j2 = 0; j2 < 100; ++j2) {
++			dngItems.add(new DungeonLoot(new ItemStack(mod_SummerParadise.RedReed), 1, 4));
++		}
++
++		for(j2 = 0; j2 < 100; ++j2) {
++			dngItems.add(new DungeonLoot(new ItemStack(mod_SummerParadise.PalmTreeSapling), 1, 4));
++		}
++
++		for(j2 = 0; j2 < 100; ++j2) {
++			dngItems.add(new DungeonLoot(new ItemStack(mod_SummerParadise.Cranberry), 1, 4));
++		}
++
++		dngItems.add(new DungeonLoot(new ItemStack(Item.appleGold)));
++
++		for(j2 = 0; j2 < 50; ++j2) {
++			dngItems.add(new DungeonLoot(new ItemStack(mod_SummerParadise.CranberryCocktail), 1, 4));
++		}
++
++		for(j2 = 0; j2 < 5; ++j2) {
++			dngItems.add(new DungeonLoot(new ItemStack(Item.record13)));
++		}
++
++		for(j2 = 0; j2 < 5; ++j2) {
++			dngItems.add(new DungeonLoot(new ItemStack(Item.recordCat)));
++		}
++
++	}
++
+ 	public static ItemStack dungeonGetRandomItem() {
+ 		if(!dngAddedItems) {
+ 			dungeonAddDefaultItems();
++			dngAddedItems = true;
++		}
++
++		return dngItems.isEmpty() ? null : ((DungeonLoot)dngItems.get((new Random()).nextInt(dngItems.size()))).getStack();
++	}
++
++	public static ItemStack structureGetRandomItem() {
++		if(!dngAddedItems) {
++			structureAddDefaultItems();
+ 			dngAddedItems = true;
+ 		}
+ 

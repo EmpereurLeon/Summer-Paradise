@@ -1,0 +1,10 @@
+--- a/net/minecraft/src/RenderGlobal.java
++++ b/net/minecraft/src/RenderGlobal.java
+@@ -188,6 +188,7 @@
+ 
+ 	public void loadRenderers() {
+ 		Block.leaves.setGraphicsLevel(this.mc.gameSettings.fancyGraphics);
++		mod_SummerParadise.PalmTreeLeaves.setGraphicsLevel(this.mc.gameSettings.fancyGraphics);
+ 		this.renderDistance = this.mc.gameSettings.renderDistance;
+ 		int i1;
+ 		if(this.worldRenderers != null) {

@@ -1,0 +1,19 @@
+--- /dev/null
++++ b/net/minecraft/src/ItemLonsdaliteAxe.java
+@@ -1,0 +1,16 @@
++package net.minecraft.src;
++
++public class ItemLonsdaliteAxe extends ItemLonsdaliteTool {
++    private static Block[] blocksEffectiveAgainst = new Block[] {
++            Block.planks,
++            Block.bookShelf,
++            Block.wood,
++            Block.chest,
++            Block.pumpkin,
++            Block.pumpkinLantern
++    };
++
++    protected ItemLonsdaliteAxe(int par1, EnumToolMaterialLonsdalite par2EnumToolMaterialLonsdalite) {
++        super(par1, 3, par2EnumToolMaterialLonsdalite, blocksEffectiveAgainst);
++    }
++}

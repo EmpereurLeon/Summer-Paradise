@@ -1,0 +1,77 @@
+--- /dev/null
++++ b/net/minecraft/src/WorldGenPalmTrees.java
+@@ -1,0 +1,74 @@
++package net.minecraft.src;
++
++import java.util.Random;
++
++public class WorldGenPalmTrees extends WorldGenerator {
++    public WorldGenPalmTrees() {
++    }
++
++    public boolean generate(World world, Random random, int i, int j, int k) {
++        int wood = mod_SummerParadise.PalmTreeWood.blockID;
++        int leaves = mod_SummerParadise.PalmTreeLeaves.blockID;
++                        //Tree Trunk
++                        world.setBlockWithNotify(i, j, k, wood);
++                        world.setBlockWithNotify(i, j + 1, k, wood);
++                        world.setBlockWithNotify(i, j + 2, k, wood);
++                        world.setBlockWithNotify(i, j + 3, k, wood);
++                        world.setBlockWithNotify(i, j + 4, k, wood);
++                        world.setBlockWithNotify(i, j + 5, k, wood);
++                        world.setBlockWithNotify(i, j + 6, k, wood);
++                        world.setBlockWithNotify(i, j + 7, k, wood);
++                        world.setBlockWithNotify(i, j + 8, k, wood);
++                        world.setBlockWithNotify(i, j + 9, k, wood);
++                        world.setBlockWithNotify(i, j + 10, k, wood);
++
++                        //Leaves
++                        world.setBlockWithNotify(i - 4, j + 8, k, leaves);
++                        world.setBlockWithNotify(i, j + 8, k - 4, leaves);
++                        world.setBlockWithNotify(i + 4, j + 8, k, leaves);
++                        world.setBlockWithNotify(i, j + 8, k + 4, leaves);
++                        world.setBlockWithNotify(i - 3, j + 8, k - 3, leaves);
++                        world.setBlockWithNotify(i + 3, j + 8, k + 3, leaves);
++                        world.setBlockWithNotify(i - 3, j + 8, k + 3, leaves);
++                        world.setBlockWithNotify(i + 3, j + 8, k - 3, leaves);
++                        world.setBlockWithNotify(i - 4, j + 9, k, leaves);
++                        world.setBlockWithNotify(i, j + 9, k - 4, leaves);
++                        world.setBlockWithNotify(i + 4, j + 9, k, leaves);
++                        world.setBlockWithNotify(i, j + 9, k + 4, leaves);
++                        world.setBlockWithNotify(i - 3, j + 9, k - 3, leaves);
++                        world.setBlockWithNotify(i + 3, j + 9, k + 3, leaves);
++                        world.setBlockWithNotify(i - 3, j + 9, k + 3, leaves);
++                        world.setBlockWithNotify(i + 3, j + 9, k - 3, leaves);
++                        world.setBlockWithNotify(i + 1, j + 9, k, leaves);
++                        world.setBlockWithNotify(i, j + 9, k + 1, leaves);
++                        world.setBlockWithNotify(i - 1, j + 9, k, leaves);
++                        world.setBlockWithNotify(i, j + 9, k - 1, leaves);
++                        world.setBlockWithNotify(i + 1, j + 10, k, leaves);
++                        world.setBlockWithNotify(i, j + 10, k + 1, leaves);
++                        world.setBlockWithNotify(i - 1, j + 10, k, leaves);
++                        world.setBlockWithNotify(i, j + 10, k - 1, leaves);
++                        world.setBlockWithNotify(i + 1, j + 10, k - 1, leaves);
++                        world.setBlockWithNotify(i + 1, j + 10, k + 1, leaves);
++                        world.setBlockWithNotify(i - 1, j + 10, k + 1, leaves);
++                        world.setBlockWithNotify(i - 1, j + 10, k - 1, leaves);
++                        world.setBlockWithNotify(i + 2, j + 10, k, leaves);
++                        world.setBlockWithNotify(i + 3, j + 10, k, leaves);
++                        world.setBlockWithNotify(i, j + 10, k + 2, leaves);
++                        world.setBlockWithNotify(i, j + 10, k + 3, leaves);
++                        world.setBlockWithNotify(i - 2, j + 10, k, leaves);
++                        world.setBlockWithNotify(i - 3, j + 10, k, leaves);
++                        world.setBlockWithNotify(i, j + 10, k - 2, leaves);
++                        world.setBlockWithNotify(i, j + 10, k - 3, leaves);
++                        world.setBlockWithNotify(i + 2, j + 10, k - 2, leaves);
++                        world.setBlockWithNotify(i + 2, j + 10, k + 2, leaves);
++                        world.setBlockWithNotify(i - 2, j + 10, k + 2, leaves);
++                        world.setBlockWithNotify(i - 2, j + 10, k - 2, leaves);
++                        world.setBlockWithNotify(i, j + 11, k, leaves);
++                        world.setBlockWithNotify(i + 1, j + 11, k, leaves);
++                        world.setBlockWithNotify(i, j + 11, k + 1, leaves);
++                        world.setBlockWithNotify(i - 1, j + 11, k, leaves);
++                        world.setBlockWithNotify(i, j + 11, k - 1, leaves);
++
++        return true;
++    }
++}

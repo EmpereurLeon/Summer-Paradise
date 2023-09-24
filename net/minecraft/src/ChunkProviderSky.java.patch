@@ -1,0 +1,38 @@
+--- a/net/minecraft/src/ChunkProviderSky.java
++++ b/net/minecraft/src/ChunkProviderSky.java
+@@ -40,7 +40,7 @@
+ 		this.field_28094_c = new NoiseGeneratorOctaves(this.field_28087_j, 8);
+ 	}
+ 
+-	public void func_28071_a(int i1, int i2, byte[] b3, BiomeGenBase[] biomeGenBase4, double[] d5) {
++	public void func_28071_a(int i1, int i2, short[] b3, BiomeGenBase[] biomeGenBase4, double[] d5) {
+ 		byte b6 = 2;
+ 		int i7 = b6 + 1;
+ 		byte b8 = 33;
+@@ -100,7 +100,7 @@
+ 
+ 	}
+ 
+-	public void func_28072_a(int i1, int i2, byte[] b3, BiomeGenBase[] biomeGenBase4) {
++	public void func_28072_a(int i1, int i2, short[] b3, BiomeGenBase[] biomeGenBase4) {
+ 		double d5 = 8.0D / 256D;
+ 		this.field_28079_r = this.field_28083_n.generateNoiseOctaves(this.field_28079_r, (double)(i1 * 16), (double)(i2 * 16), 0.0D, 16, 16, 1, d5, d5, 1.0D);
+ 		this.field_28078_s = this.field_28083_n.generateNoiseOctaves(this.field_28078_s, (double)(i1 * 16), 109.0134D, (double)(i2 * 16), 16, 1, 16, d5, 1.0D, d5);
+@@ -116,7 +116,7 @@
+ 
+ 				for(int i14 = 127; i14 >= 0; --i14) {
+ 					int i15 = (i8 * 16 + i7) * 128 + i14;
+-					byte b16 = b3[i15];
++					short b16 = b3[i15];
+ 					if(b16 == 0) {
+ 						i11 = -1;
+ 					} else if(b16 == Block.stone.blockID) {
+@@ -153,7 +153,7 @@
+ 
+ 	public Chunk provideChunk(int i1, int i2) {
+ 		this.field_28087_j.setSeed((long)i1 * 341873128712L + (long)i2 * 132897987541L);
+-		byte[] b3 = new byte[32768];
++		short[] b3 = new short[32768];
+ 		Chunk chunk4 = new Chunk(this.field_28081_p, b3, i1, i2);
+ 		this.field_28075_v = this.field_28081_p.getWorldChunkManager().loadBlockGeneratorData(this.field_28075_v, i1 * 16, i2 * 16, 16, 16);
+ 		double[] d5 = this.field_28081_p.getWorldChunkManager().temperature;

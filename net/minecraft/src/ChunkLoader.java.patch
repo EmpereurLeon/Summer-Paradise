@@ -1,0 +1,20 @@
+--- a/net/minecraft/src/ChunkLoader.java
++++ b/net/minecraft/src/ChunkLoader.java
+@@ -110,7 +110,7 @@
+ 		nBTTagCompound2.setInteger("xPos", chunk0.xPosition);
+ 		nBTTagCompound2.setInteger("zPos", chunk0.zPosition);
+ 		nBTTagCompound2.setLong("LastUpdate", world1.getWorldTime());
+-		nBTTagCompound2.setByteArray("Blocks", chunk0.blocks);
++		nBTTagCompound2.setShortArray("Blocks", chunk0.blocks);
+ 		nBTTagCompound2.setByteArray("Data", chunk0.data.data);
+ 		nBTTagCompound2.setByteArray("SkyLight", chunk0.skylightMap.data);
+ 		nBTTagCompound2.setByteArray("BlockLight", chunk0.blocklightMap.data);
+@@ -152,7 +152,7 @@
+ 		int i2 = nBTTagCompound1.getInteger("xPos");
+ 		int i3 = nBTTagCompound1.getInteger("zPos");
+ 		Chunk chunk4 = new Chunk(world0, i2, i3);
+-		chunk4.blocks = nBTTagCompound1.getByteArray("Blocks");
++		chunk4.blocks = nBTTagCompound1.getShortArray("Blocks");
+ 		chunk4.data = new NibbleArray(nBTTagCompound1.getByteArray("Data"));
+ 		chunk4.skylightMap = new NibbleArray(nBTTagCompound1.getByteArray("SkyLight"));
+ 		chunk4.blocklightMap = new NibbleArray(nBTTagCompound1.getByteArray("BlockLight"));

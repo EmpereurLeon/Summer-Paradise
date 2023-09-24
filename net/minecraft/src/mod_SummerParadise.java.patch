@@ -1,0 +1,116 @@
+--- /dev/null
++++ b/net/minecraft/src/mod_SummerParadise.java
+@@ -1,0 +1,113 @@
++package net.minecraft.src;
++
++public class mod_SummerParadise extends BaseMod {
++    public static int growNamehere1 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage0.png");
++    public static int growNamehere2 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage1.png");
++    public static int growNamehere3 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage2.png");
++    public static int growNamehere4 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage3.png");
++
++    public mod_SummerParadise() {
++        new DimensionSummerParadise().name = "Summer Paradise";
++
++        ModLoader.RegisterBlock(SummerParadisePortal);
++        ModLoader.RegisterBlock(RedReed);
++        ModLoader.RegisterBlock(PalmTreeLeaves);
++        ModLoader.RegisterBlock(PalmTreeWood);
++        ModLoader.RegisterBlock(PalmTreeSapling);
++        ModLoader.RegisterBlock(LonsdaleiteOre);
++
++        ModLoader.AddName(RedReed, "Red Reed");
++        ModLoader.AddName(RedReedItem, "Red Reed");
++        ModLoader.AddName(PalmTreeLeaves, "Palm Tree Leaves");
++        ModLoader.AddName(PalmTreeWood, "Palm Tree Wood");
++        ModLoader.AddName(PalmTreeSapling, "Palm Tree Sapling");
++        ModLoader.AddName(CranberryCrop, "Cranberry Crop");
++        ModLoader.AddName(Cranberry, "Cranberry");
++        ModLoader.AddName(Alcohol, "Alcohol");
++        ModLoader.AddName(CranberryCocktail, "Cranberry Cocktail");
++        ModLoader.AddName(LonsdalitePickaxe, "Lonsdaleite Pickaxe");
++        ModLoader.AddName(LonsdaliteAxe, "Lonsdaleite Axe");
++        ModLoader.AddName(LonsdaliteShovel, "Lonsdaleite Shovel");
++        ModLoader.AddName(LonsdaliteSword, "Lonsdaleite Sword");
++        ModLoader.AddName(LonsdaliteHoe, "Lonsdaleite Hoe");
++        ModLoader.AddName(LonsdaleiteOre, "Lonsdaleite Ore");
++        ModLoader.AddName(Lonsdaleite, "Lonsdaleite");
++
++        ModLoader.AddRecipe(new ItemStack(Block.planks, 4), new Object[] {"#", Character.valueOf('#'), PalmTreeWood});
++        ModLoader.AddRecipe(new ItemStack(LonsdalitePickaxe, 1), new Object [] {"###", " % ", " % ", '#', mod_SummerParadise.Lonsdaleite, '%', Item.stick});
++        ModLoader.AddRecipe(new ItemStack(LonsdaliteAxe, 1), new Object [] {"##", "#%", " %", '#', mod_SummerParadise.Lonsdaleite, '%', Item.stick});
++        ModLoader.AddRecipe(new ItemStack(LonsdaliteShovel, 1), new Object [] {"#", "%", "%", '#', mod_SummerParadise.Lonsdaleite, '%', Item.stick});
++        ModLoader.AddRecipe(new ItemStack(LonsdaliteSword, 1), new Object [] {"#", "#", "%", '#', mod_SummerParadise.Lonsdaleite, '%', Item.stick});
++        ModLoader.AddRecipe(new ItemStack(LonsdaliteHoe, 1), new Object [] {"##", " %", " %", '#', mod_SummerParadise.Lonsdaleite, '%', Item.stick});
++        ModLoader.AddRecipe(new ItemStack(Block.sponge, 1), new Object[]{"###", "#X#", "###", '#', Item.lightStoneDust, 'X', Block.netherrack});
++        ModLoader.AddShapelessRecipe(new ItemStack(Alcohol, 1), new Object [] {Item.bowlEmpty, mod_SummerParadise.RedReedItem, mod_SummerParadise.RedReedItem,});
++        ModLoader.AddShapelessRecipe(new ItemStack(CranberryCocktail, 1), new Object [] {mod_SummerParadise.Alcohol, mod_SummerParadise.Cranberry});
++
++        ModLoader.AddSmelting(PalmTreeWood.blockID, new ItemStack(Item.coal, 1, 1));
++    }
++
++    public static final BlockPortalSummerParadise SummerParadisePortal;
++    public static final Block PalmTreeWood;
++    public static final Block PalmTreeSapling;
++    public static Block RedReed = (new BlockRedReed(124, ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/RedReed.png"))).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setResistance(0.0F).setBlockName("Red Reed");
++    public static final Block CranberryCrop = new BlockCranberry(129, 0).setBlockName("Cranberry").disableNeighborNotifyOnMetadataChange().setStepSound(Block.soundGrassFootstep);
++    public static final Block LonsdaleiteOre = new BlockLonsdaleiteOre(160, 0).setBlockName("Lonsdaleite Ore").setHardness(5.0F).setResistance(4.0F);
++    public static final Item LonsdalitePickaxe = new ItemLonsdalitePickaxe(2000, EnumToolMaterialLonsdalite.MATERIALLONSDALITE).setItemName("Lonsdaleite Pickaxe");
++    public static final Item LonsdaliteAxe = new ItemLonsdaliteAxe(2001, EnumToolMaterialLonsdalite.MATERIALLONSDALITE).setItemName("Lonsdaleite Axe");
++    public static final Item LonsdaliteShovel = new ItemLonsdaliteShovel(2002, EnumToolMaterialLonsdalite.MATERIALLONSDALITE).setItemName("Lonsdaleite Shovel");
++    public static final Item LonsdaliteSword = new ItemLonsdaliteSword(2003, EnumToolMaterialLonsdalite.MATERIALLONSDALITE).setItemName("Lonsdaleite Sword");
++    public static final Item LonsdaliteHoe = new ItemLonsdaliteHoe(2004, EnumToolMaterialLonsdalite.MATERIALLONSDALITE).setItemName("Lonsdaleite Hoe");
++    public static Item RedReedItem = (new ItemRedReed(30000, mod_SummerParadise.RedReed).setItemName("Red Reed"));
++    public static final Item Lonsdaleite = new ItemLonsdaleite(30001).setItemName("Lonsdaleite");
++    public static final Item Cranberry = new ItemCranberry(4000, mod_SummerParadise.CranberryCrop.blockID).setItemName("Cranberry");
++    public static final Item Alcohol = new ItemFood(5000, 4, false).setItemName("Alcohol");
++    public static final Item CranberryCocktail = new ItemFood(5001, 8, false).setItemName("Cranberry Cocktail");
++    public static final BlockPalmTreeLeaves PalmTreeLeaves = (BlockPalmTreeLeaves)(new BlockPalmTreeLeaves(125, ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/PalmTreeLeaves.png"))).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setBlockName("Palm Tree Leaves").disableStats().disableNeighborNotifyOnMetadataChange();
++    public static final BlockPalmTreeLeaves PalmTreeLeavesFast = (BlockPalmTreeLeaves)(new BlockPalmTreeLeaves(128, ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/PalmTreeLeavesFast.png"))).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setBlockName("Palm Tree Leaves").disableStats().disableNeighborNotifyOnMetadataChange();
++
++    static {
++        SummerParadisePortal = (BlockPortalSummerParadise) (new BlockPortalSummerParadise(234, ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Portal.png"))).setHardness(-1F).setStepSound(Block.soundGlassFootstep).setLightValue(0.75F).setBlockName("Summer Paradise Portal");
++        PalmTreeWood = (new BlockPalmTreeWood(126, ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/PalmTree.png"))).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setBlockName("Palm Tree Wood");
++        PalmTreeSapling = (new BlockPalmTreeSapling(127, ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/PalmTreeSapling.png"))).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setBlockName("Palm Tree Sapling");
++        CranberryCrop.blockIndexInTexture = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry.png");
++        LonsdaleiteOre.blockIndexInTexture = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/lonsdalite_ore.png");
++        Cranberry.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/Cranberry.png");
++        Alcohol.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/Alcohol.png");
++        CranberryCocktail.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/CranberryCocktail.png");
++        LonsdalitePickaxe.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/lonsdalite_pickaxe.png");
++        LonsdaliteAxe.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/lonsdalite_axe.png");
++        LonsdaliteShovel.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/lonsdalite_shovel.png");
++        LonsdaliteSword.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/lonsdalite_sword.png");
++        LonsdaliteHoe.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/lonsdalite_hoe.png");
++        Lonsdaleite.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/Lonsdaleite_Item.png");
++    }
++
++    public static boolean canStructureStay(World world1, int i2, int i3, int i4) {
++        return (world1.getFullBlockLightValue(i2, i3, i4) >= 8 || world1.canBlockSeeTheSky(i2, i3, i4)) && canThisStructureSpawnOnThisBlockID(world1.getBlockId(i2, i3 - 1, i4));
++    }
++
++    public static boolean canTreeStay(World world1, int i2, int i3, int i4) {
++        return (canThisTreeSpawnOnThisBlockID(world1.getBlockId(i2, i3 - 1, i4)));
++    }
++
++    public static boolean canCropStay(World world1, int i2, int i3, int i4) {
++        return (canThisCropSpawnOnThisBlockID(world1.getBlockId(i2, i3 - 1, i4)));
++    }
++
++    protected static boolean canThisStructureSpawnOnThisBlockID(int i1) {
++        return i1 == Block.grass.blockID || i1 == Block.dirt.blockID || i1 == Block.tilledField.blockID;
++    }
++
++    protected static boolean canThisTreeSpawnOnThisBlockID(int i1) {
++        return i1 == Block.sand.blockID;
++    }
++
++    protected static boolean canThisCropSpawnOnThisBlockID(int i1) {
++        return i1 == Block.grass.blockID;
++    }
++    public String Version()
++    {
++        return "1.7.3";
++    }
++
++}

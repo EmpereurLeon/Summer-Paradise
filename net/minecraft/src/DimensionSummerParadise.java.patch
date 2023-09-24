@@ -1,0 +1,12 @@
+--- /dev/null
++++ b/net/minecraft/src/DimensionSummerParadise.java
+@@ -1,0 +1,9 @@
++package net.minecraft.src;
++
++public class DimensionSummerParadise extends DimensionBase {
++
++    public DimensionSummerParadise() {
++        super(1001,WorldProviderSummerParadise.class,TeleporterSummerParadise.class);
++    }
++
++}

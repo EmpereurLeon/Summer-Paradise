@@ -1,0 +1,28 @@
+--- /dev/null
++++ b/net/minecraft/src/BlockLonsdaleiteOre.java
+@@ -1,0 +1,25 @@
++package net.minecraft.src;
++
++import java.util.Random;
++
++public class BlockLonsdaleiteOre extends Block {
++    public BlockLonsdaleiteOre(int i1, int i2) {
++        super(i1, i2, Material.rock);
++    }
++
++    public int idDropped(int i1, Random random2) {
++        return this.blockID == mod_SummerParadise.LonsdaleiteOre.blockID ? mod_SummerParadise.Lonsdaleite.shiftedIndex : this.blockID;
++    }
++
++    public int quantityDropped(Random random1) {
++        if (this.blockID == mod_SummerParadise.LonsdaleiteOre.blockID) {
++            return 2 + random1.nextInt(3);
++        } else {
++            return 1;
++        }
++    }
++
++    protected int damageDropped(int i1) {
++        return this.blockID == mod_SummerParadise.LonsdaleiteOre.blockID ? 4 : 0;
++    }
++}
