@@ -3,7 +3,7 @@ Summer Paradise is a mod for Minecraft Beta 1.7.3 which adds a whole new dimensi
 # Features
 •   A new Dimension with a new world generation inspired by Alpha's world generation
 
-•   The sponge has become usable! Craft it with 7 Lightstone Powder, and use it to either remove water or create a portal
+•   The sponge has become usable! Craft it with 7 Lightstone Powder and one Netherrack, and use it to either remove water or create a portal
 
 •   A new variant of tree, called the palm tree. This tree only grows on sand and appears in the Summer Paradise dimension
 
