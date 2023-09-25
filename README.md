@@ -26,7 +26,7 @@ Download client (there's no server): https://github.com/EmpereurLeon/Summer-Para
 Download source code patches: https://github.com/EmpereurLeon/Summer-Paradise/tree/main/net/minecraft/src
 
 
-For this mod you'll need ModLoader, ShockAhPI and Player API. If you are using MultiMC, place the mod at the BOTTOM of the Mods list.
+For this mod you'll need ModLoader, ShockAhPI 5.1 and Player API. If you are using MultiMC, place the mod at the BOTTOM of the Mods list.
 Any advice is welcome. What should I add?
 
 ![2023-09-25_00 41 17](https://github.com/EmpereurLeon/Summer-Paradise/assets/111201150/a826fd05-b3e5-4aac-be94-39c51fda47c9)
