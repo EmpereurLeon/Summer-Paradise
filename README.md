@@ -2,21 +2,31 @@ Summer Paradise is a mod for Minecraft Beta 1.7.3 which adds a whole new dimensi
 
 # Features
 •   A new Dimension with a new world generation inspired by Alpha's world generation
+
 •   The sponge has become usable! Craft it with 7 Lightstone Powder, and use it to either remove water or create a portal
+
 •   A new variant of tree, called the palm tree. This tree only grows on sand and appears in the Summer Paradise dimension
+
 •   A new variant of sugar cane, called red reed. It only grows on grass blocks off the coast of the Summer Paradise dimension
-•   A new plant, called the cranberry, grows almost everywhere in this new dimension. 
-    However, you will have to wait until it grows to be able to harvest it! It can be replanted on any block of grass
+
+•   A new plant, called the cranberry, grows almost everywhere in this new dimension. However, you will have to wait until it grows to be able to harvest it! It can be replanted on any block of grass
+
 •   With a bowl and two red reeds, you can craft alcohol. Alcohol heals 2 hearts...
+
 •   ...But you can add a cranberry to craft Cranberry Cocktail and heal yourself by 4 hearts
+
 •   A new structure also appears on the surface. But what is it for?
+
 •   A new ore, called lonsdaleite, is generated. It creates tools twice as resistant and efficient as diamonds. 
-    But be careful, this ore is twice as rare as diamond, and only generates up to layer 8
+But be careful, this ore is twice as rare as diamond, and only generates up to layer 8
 
 # Downloads
 Download client (there's no server): https://github.com/EmpereurLeon/Summer-Paradise/releases/tag/0.1
+
 Download source code patches: https://github.com/EmpereurLeon/Summer-Paradise/tree/main/net/minecraft/src
-For this mod you'll need ModLoader, ShockAhPI, Player API and ModLoader. If you are using MultiMC, place the mod at the BOTTOM of the Mods list.
+
+
+For this mod you'll need ModLoader, ShockAhPI and Player API. If you are using MultiMC, place the mod at the BOTTOM of the Mods list.
 Any advice is welcome. What should I add?
 
 ![2023-09-25_00 41 17](https://github.com/EmpereurLeon/Summer-Paradise/assets/111201150/a826fd05-b3e5-4aac-be94-39c51fda47c9)
