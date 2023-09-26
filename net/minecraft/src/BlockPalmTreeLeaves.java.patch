@@ -124,7 +124,7 @@
 +
 +    public void setGraphicsLevel(boolean z1) {
 +        this.graphicsLevel = z1;
-+        this.blockIndexInTexture = this.baseIndexInPNG + (z1? 0 : 15);
++        this.blockIndexInTexture = this.baseIndexInPNG + (z1? 0 : 1);
 +    }
 +
 +    public void onEntityWalking(World world, int i, int j, int k, Entity entity)

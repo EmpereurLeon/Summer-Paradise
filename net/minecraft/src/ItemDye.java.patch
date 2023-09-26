@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ItemDye.java
 +++ b/net/minecraft/src/ItemDye.java
-@@ -30,9 +30,27 @@
+@@ -30,9 +30,36 @@
  				return true;
  			}
  
@@ -25,6 +25,15 @@
 +			if(i8 == mod_SummerParadise.CranberryCrop.blockID) {
 +				if(!world3.multiplayerWorld) {
 +					((BlockCranberry)mod_SummerParadise.CranberryCrop).fertilize(world3, i4, i5, i6);
++					--itemStack1.stackSize;
++				}
++
++				return true;
++			}
++
++			if(i8 == mod_SummerParadise.PineappleCrop.blockID) {
++				if(!world3.multiplayerWorld) {
++					((BlockPineapple)mod_SummerParadise.PineappleCrop).fertilize(world3, i4, i5, i6);
  					--itemStack1.stackSize;
  				}
  

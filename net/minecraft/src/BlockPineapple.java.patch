@@ -1,13 +1,13 @@
 --- /dev/null
-+++ b/net/minecraft/src/BlockCranberry.java
++++ b/net/minecraft/src/BlockPineapple.java
 @@ -1,0 +1,109 @@
 +package net.minecraft.src;
 +
 +import java.util.Random;
 +
-+public class BlockCranberry extends BlockFlower {
++public class BlockPineapple extends BlockFlower {
 +
-+    protected BlockCranberry(int i, int j) {
++    protected BlockPineapple(int i, int j) {
 +        super(i, j);
 +        blockIndexInTexture = j;
 +        setTickOnLoad(true);
@@ -15,7 +15,7 @@
 +        setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
 +    }
 +
-+        protected boolean canThisPlantGrowOnThisBlockID(int i) {
++    protected boolean canThisPlantGrowOnThisBlockID(int i) {
 +        return i == Block.grass.blockID;
 +    }
 +
@@ -76,25 +76,25 @@
 +
 +    public int getBlockTextureFromSideAndMetadata(int i, int j) {
 +        if(j == 0) {
-+            return mod_SummerParadise.growCranberry1;
++            return mod_SummerParadise.growPineapple1;
 +        }
 +        if(j == 1) {
-+            return mod_SummerParadise.growCranberry2;
++            return mod_SummerParadise.growPineapple2;
 +        }
 +        if(j == 2) {
-+            return mod_SummerParadise.growCranberry3;
++            return mod_SummerParadise.growPineapple3;
 +        }
 +        else {
-+            return mod_SummerParadise.growCranberry4;
++            return mod_SummerParadise.growPineapple4;
 +        }
 +    }
 +
 +    public int getRenderType() {
-+        return 6;
++        return 1;
 +    }
 +
 +    public int idDropped(int i, Random random) {
-+        return i == 7 ? mod_SummerParadise.Cranberry.shiftedIndex : -1;
++        return i == 7 ? mod_SummerParadise.Pineapple.shiftedIndex : -1;
 +    }
 +
 +
@@ -105,7 +105,7 @@
 +
 +    public static class generate {
 +        public boolean generate(World worldObj, Random rand, int i15, int heightValue, int i17) {
-+            worldObj.setBlockAndMetadataWithNotify(i15, heightValue, i17, mod_SummerParadise.CranberryCrop.blockID, 0);
++            worldObj.setBlockAndMetadataWithNotify(i15, heightValue, i17, mod_SummerParadise.PineappleCrop.blockID, 0);
 +            return true;
 +        }
 +    }

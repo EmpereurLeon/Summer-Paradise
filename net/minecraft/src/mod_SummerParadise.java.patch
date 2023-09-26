@@ -1,13 +1,17 @@
 --- /dev/null
 +++ b/net/minecraft/src/mod_SummerParadise.java
-@@ -1,0 +1,113 @@
+@@ -1,0 +1,133 @@
 +package net.minecraft.src;
 +
 +public class mod_SummerParadise extends BaseMod {
-+    public static int growNamehere1 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage0.png");
-+    public static int growNamehere2 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage1.png");
-+    public static int growNamehere3 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage2.png");
-+    public static int growNamehere4 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage3.png");
++    public static int growCranberry1 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage0.png");
++    public static int growCranberry2 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage1.png");
++    public static int growCranberry3 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage2.png");
++    public static int growCranberry4 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry_stage3.png");
++    public static int growPineapple1 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/pineapple_stage0.png");
++    public static int growPineapple2 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/pineapple_stage1.png");
++    public static int growPineapple3 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/pineapple_stage2.png");
++    public static int growPineapple4 = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/pineapple_stage3.png");
 +
 +    public mod_SummerParadise() {
 +        new DimensionSummerParadise().name = "Summer Paradise";
@@ -26,8 +30,12 @@
 +        ModLoader.AddName(PalmTreeSapling, "Palm Tree Sapling");
 +        ModLoader.AddName(CranberryCrop, "Cranberry Crop");
 +        ModLoader.AddName(Cranberry, "Cranberry");
++        ModLoader.AddName(PineappleCrop, "Pineapple Crop");
++        ModLoader.AddName(Pineapple, "Pineapple");
 +        ModLoader.AddName(Alcohol, "Alcohol");
++        ModLoader.AddName(PineappleJuice, "Pineapple Juice");
 +        ModLoader.AddName(CranberryCocktail, "Cranberry Cocktail");
++        ModLoader.AddName(PineappleCocktail, "Pineapple Screwdriver");
 +        ModLoader.AddName(LonsdalitePickaxe, "Lonsdaleite Pickaxe");
 +        ModLoader.AddName(LonsdaliteAxe, "Lonsdaleite Axe");
 +        ModLoader.AddName(LonsdaliteShovel, "Lonsdaleite Shovel");
@@ -35,6 +43,9 @@
 +        ModLoader.AddName(LonsdaliteHoe, "Lonsdaleite Hoe");
 +        ModLoader.AddName(LonsdaleiteOre, "Lonsdaleite Ore");
 +        ModLoader.AddName(Lonsdaleite, "Lonsdaleite");
++
++        //ModLoader.AddRecipe(new ItemStack(Item.flintAndSteel, 1), new Object[] {"#", Character.valueOf('#'), Block.dirt});
++        //ModLoader.AddRecipe(new ItemStack(Block.sponge, 64), new Object[] {"#", Character.valueOf('#'), Block.sand});
 +
 +        ModLoader.AddRecipe(new ItemStack(Block.planks, 4), new Object[] {"#", Character.valueOf('#'), PalmTreeWood});
 +        ModLoader.AddRecipe(new ItemStack(LonsdalitePickaxe, 1), new Object [] {"###", " % ", " % ", '#', mod_SummerParadise.Lonsdaleite, '%', Item.stick});
@@ -44,7 +55,9 @@
 +        ModLoader.AddRecipe(new ItemStack(LonsdaliteHoe, 1), new Object [] {"##", " %", " %", '#', mod_SummerParadise.Lonsdaleite, '%', Item.stick});
 +        ModLoader.AddRecipe(new ItemStack(Block.sponge, 1), new Object[]{"###", "#X#", "###", '#', Item.lightStoneDust, 'X', Block.netherrack});
 +        ModLoader.AddShapelessRecipe(new ItemStack(Alcohol, 1), new Object [] {Item.bowlEmpty, mod_SummerParadise.RedReedItem, mod_SummerParadise.RedReedItem,});
++        ModLoader.AddShapelessRecipe(new ItemStack(PineappleJuice, 1), new Object [] {Item.bowlEmpty, mod_SummerParadise.Pineapple});
 +        ModLoader.AddShapelessRecipe(new ItemStack(CranberryCocktail, 1), new Object [] {mod_SummerParadise.Alcohol, mod_SummerParadise.Cranberry});
++        ModLoader.AddShapelessRecipe(new ItemStack(PineappleCocktail, 1), new Object [] {mod_SummerParadise.Alcohol, mod_SummerParadise.PineappleJuice});
 +
 +        ModLoader.AddSmelting(PalmTreeWood.blockID, new ItemStack(Item.coal, 1, 1));
 +    }
@@ -54,6 +67,7 @@
 +    public static final Block PalmTreeSapling;
 +    public static Block RedReed = (new BlockRedReed(124, ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/RedReed.png"))).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setResistance(0.0F).setBlockName("Red Reed");
 +    public static final Block CranberryCrop = new BlockCranberry(129, 0).setBlockName("Cranberry").disableNeighborNotifyOnMetadataChange().setStepSound(Block.soundGrassFootstep);
++    public static final Block PineappleCrop = new BlockPineapple(130, 0).setBlockName("Pineapple").disableNeighborNotifyOnMetadataChange().setStepSound(Block.soundGrassFootstep);
 +    public static final Block LonsdaleiteOre = new BlockLonsdaleiteOre(160, 0).setBlockName("Lonsdaleite Ore").setHardness(5.0F).setResistance(4.0F);
 +    public static final Item LonsdalitePickaxe = new ItemLonsdalitePickaxe(2000, EnumToolMaterialLonsdalite.MATERIALLONSDALITE).setItemName("Lonsdaleite Pickaxe");
 +    public static final Item LonsdaliteAxe = new ItemLonsdaliteAxe(2001, EnumToolMaterialLonsdalite.MATERIALLONSDALITE).setItemName("Lonsdaleite Axe");
@@ -63,8 +77,11 @@
 +    public static Item RedReedItem = (new ItemRedReed(30000, mod_SummerParadise.RedReed).setItemName("Red Reed"));
 +    public static final Item Lonsdaleite = new ItemLonsdaleite(30001).setItemName("Lonsdaleite");
 +    public static final Item Cranberry = new ItemCranberry(4000, mod_SummerParadise.CranberryCrop.blockID).setItemName("Cranberry");
-+    public static final Item Alcohol = new ItemFood(5000, 4, false).setItemName("Alcohol");
-+    public static final Item CranberryCocktail = new ItemFood(5001, 8, false).setItemName("Cranberry Cocktail");
++    public static final Item Pineapple = new ItemPineapple(4001, mod_SummerParadise.PineappleCrop.blockID).setItemName("Pineapple");
++    public static final Item Alcohol = new ItemFood(5000, 8, false).setItemName("Alcohol");
++    public static final Item CranberryCocktail = new ItemFood(5001, 16, false).setItemName("Cranberry Cocktail");
++    public static final Item PineappleCocktail = new ItemFood(5002, 16, false).setItemName("Pineapple Cocktail");
++    public static final Item PineappleJuice = new ItemFood(5003, 8, false).setItemName("Pineapple Juice");
 +    public static final BlockPalmTreeLeaves PalmTreeLeaves = (BlockPalmTreeLeaves)(new BlockPalmTreeLeaves(125, ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/PalmTreeLeaves.png"))).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setBlockName("Palm Tree Leaves").disableStats().disableNeighborNotifyOnMetadataChange();
 +    public static final BlockPalmTreeLeaves PalmTreeLeavesFast = (BlockPalmTreeLeaves)(new BlockPalmTreeLeaves(128, ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/PalmTreeLeavesFast.png"))).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setBlockName("Palm Tree Leaves").disableStats().disableNeighborNotifyOnMetadataChange();
 +
@@ -75,8 +92,11 @@
 +        CranberryCrop.blockIndexInTexture = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/Cranberry.png");
 +        LonsdaleiteOre.blockIndexInTexture = ModLoader.addOverride("/terrain.png", "/net/minecraft/SummerParadise/Blocks/lonsdalite_ore.png");
 +        Cranberry.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/Cranberry.png");
++        Pineapple.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/pineapple.png");
 +        Alcohol.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/Alcohol.png");
++        PineappleJuice.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/Pineapple_Juice.png");
 +        CranberryCocktail.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/CranberryCocktail.png");
++        PineappleCocktail.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/Pineapple_Cocktail.png");
 +        LonsdalitePickaxe.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/lonsdalite_pickaxe.png");
 +        LonsdaliteAxe.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/lonsdalite_axe.png");
 +        LonsdaliteShovel.iconIndex = ModLoader.addOverride("/gui/items.png", "/net/minecraft/SummerParadise/Blocks/lonsdalite_shovel.png");
