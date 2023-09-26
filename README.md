@@ -21,7 +21,7 @@ Summer Paradise is a mod for Minecraft Beta 1.7.3 which adds a whole new dimensi
 But be careful, this ore is twice as rare as diamond, and only generates up to layer 8
 
 # Downloads
-Download client (there's no server): https://github.com/EmpereurLeon/Summer-Paradise/releases/tag/0.1
+Download client (there's no server): https://github.com/EmpereurLeon/Summer-Paradise/releases/tag/0.1.1
 
 Download source code patches: https://github.com/EmpereurLeon/Summer-Paradise/tree/main/net/minecraft/src
 
@@ -35,3 +35,6 @@ Any advice is welcome. What should I add?
 ![2023-09-24_22 37 39](https://github.com/EmpereurLeon/Summer-Paradise/assets/111201150/76b71def-eb02-4cb0-8ee5-ec0badcef051)
 ![2023-09-25_00 43 21](https://github.com/EmpereurLeon/Summer-Paradise/assets/111201150/a6b8e98e-aa74-49d6-8f8e-01845bf2d4d3)
 ![2023-09-25_00 42 16](https://github.com/EmpereurLeon/Summer-Paradise/assets/111201150/70639ca2-57e2-4061-b5b6-638cf3288eaf)
+![2023-09-26_22 53 44](https://github.com/EmpereurLeon/Summer-Paradise/assets/111201150/5dff992e-36bb-4f23-8146-165742f67a43)
+![2023-09-26_21 37 20](https://github.com/EmpereurLeon/Summer-Paradise/assets/111201150/ee7e4996-6575-4741-9e6d-043bbea918ee)
+![2023-09-26_21 28 01](https://github.com/EmpereurLeon/Summer-Paradise/assets/111201150/378f1ee1-b777-4e56-b3df-12b4de8f8007)
